@@ -10,7 +10,7 @@ start_time = datetime.now()
 
 config = SimpleNamespace(
     #ERA5 U10S input dir
-    nwp_dir="../data/inputs/ERA5_U10S/",
+    nwp_dir="../data/inputs/ERA5/",
     #Glob currents dir
     #2023
     currents_dir="../data/inputs/GLOBCURRENT/",
@@ -21,8 +21,8 @@ config = SimpleNamespace(
     #Directory to store output grib files
     grib_out_dir="../data/ouputs/grib/",
     #Path to metadata files with normalization parameters
-    norm_metadata_files={'inputs': '../../metadata/input_norm.csv',
-                         'targets': '../../metadata/target_norm.csv'},
+    norm_metadata_files={'inputs': '../metadata/input_norm.csv',
+                         'targets': '../metadata/target_norm.csv'},
     #ERA5 analysis times
     nwp_an=[6],
     #List of ERA5 FC times
@@ -48,11 +48,11 @@ config = SimpleNamespace(
     #Target variable names as in norm_metadata_files
     target_var_names=['u_diff', 'v_diff'],
     #Path to metadata file required for L3 collocations
-    nwp_l3_proc_metadata="../../metadata/nwp_l3_preproc.csv",
+    nwp_l3_proc_metadata="../metadata/nwp_l3_preproc.csv",
     #DNN model class
     model=FCNN,
     #Path to model weights
-    model_path='../weights/02',
+    model_path='../weights/monthly/02',
     #Configuration of the model
     batch_size=512*1024,
     dropout=0.25,
