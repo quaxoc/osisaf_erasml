@@ -64,13 +64,13 @@ Before running inference, you need to prepare and collocate the following input 
 |---|---|---|
 | Eastward / Northward U10S components | ERA5 | Stress-equivalent winds at 10 m |
 | U10S speed and direction | Derived from ERA5 | |
-| U10S curl and divergence | Derived from ERA5 | Computed on staggered grid |
+| U10S curl and divergence | Derived from ERA5 |  |
 | Mean sea level pressure | ERA5 | |
 | Surface air temperature | ERA5 | |
 | Specific humidity | ERA5 | |
-| Sea surface temperature (SST) | ERA5 | From analysis files; no diurnal cycle |
+| Sea surface temperature (SST) | ERA5 |  |
 | Eastward / Northward SST gradients | Derived from ERA5 SST | |
-| Eastward / Northward sea water velocity | CMEMS GLOBCURRENT | Daily mean; 0.25° → interpolated |
+| Eastward / Northward sea water velocity | CMEMS GLOBCURRENT | Daily mean |
 
 ERA5 data are sourced from twice-daily analyses (06:00 and 18:00 UTC) with hourly forecast steps from +3 to +18 hours. GLOBCURRENT daily averages centered at 12:00 UTC are used.
 
