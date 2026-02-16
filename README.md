@@ -80,25 +80,28 @@ See `collocations/` for the collocation tools and `metadata/` for normalization 
 
 ## Running Inference
 
-```bash
-python inference/generate_outputs_fnn.py $START_DATE $END_DATE
-```
-
-Where `$START_DATE` and `$END_DATE` are dates in `YYYYMMDD` format, e.g.:
+The script can be run from any directory:
 
 ```bash
 python inference/generate_outputs_fnn.py 20230101 20231231
 ```
 
-The script will:
-1. Load the pre-processed, collocated input fields.
-2. Select the appropriate model weights (monthly or all-year, as configured).
-3. Apply normalization using the statistics in `metadata/`.
-4. Run inference on the FCNN to predict the U10S bias correction for both zonal (u) and meridional (v) components.
-5. Add the predicted corrections to the ERA5 U10S forecasts.
-6. Output the bias-corrected wind fields in NetCDF and/or GRIB format.
+Before running, open `inference/generate_outputs_fnn.py` and review the configuration block at the top of the file. The key parameters to set are:
 
-> **All-year model**: when using the all-year weights, the `input_var_names` list in the main script configuration must include the `date` entry. This provides the sine/cosine day-of-year encoding that the all-year model requires. The monthly models do not use this input and should be run without it.
+- `nwp_dir` / `currents_dir`: paths to your ERA5 and GLOBCURRENT input data
+- `nwp_an`: analysis times to process (currently only 6 and 18 UTC are supported)
+- `nwp_fc`: forecast steps to process in hours — defaults to FC+3 only; change to `np.arange(3, 19)` for the full range used in training
+- `model_path`: path to the weights to load (see [Pre-trained Weights](#pre-trained-weights) below)
+- `currents_prefix`: set to `"dataset-uv-rep-daily_"` for the reprocessed CMEMS product or `"dataset-uv-nrt-daily_"` for the near-real-time product
+
+The script will:
+1. Load and collocate ERA5 and GLOBCURRENT input fields onto the 0.125° grid.
+2. Normalize inputs using the statistics in `metadata/`.
+3. Run inference on the FCNN to predict bias corrections for both zonal (u) and meridional (v) wind components.
+4. Apply the corrections to the ERA5 U10S forecasts.
+5. Write output to NetCDF. GRIB output is also supported but requires the conversion block in the script to be uncommented (`cdo` is included in `conda.yml`).
+
+> **All-year model**: when using the all-year weights, uncomment `'date'` in the `input_var_names` list in the configuration block. This enables the sine/cosine day-of-year encoding that the all-year model requires. The monthly models do not use this input.
 
 ---
 

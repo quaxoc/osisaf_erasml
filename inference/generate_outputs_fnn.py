@@ -4,22 +4,25 @@ import numpy as np
 from model.fcnn import FCNN
 import datetime as dt
 import sys
-
 from datetime import datetime
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent  # points to repo root regardless of where you run from
+
+
 start_time = datetime.now()
 
 config = SimpleNamespace(
     #ERA5 U10S input directory
-    nwp_dir="../data/inputs/ERA5/",
+    nwp_dir=str(ROOT / "data/inputs/ERA5/"),
     #Global total currents directory
-    currents_dir="../data/inputs/GLOBCURRENT/",
+    currents_dir=str(ROOT / "data/inputs/GLOBCURRENT/"),
     #Directory to store output netCDF files
-    nc_out_dir="../data/outputs/nc/",
+    nc_out_dir=str(ROOT / "data/outputs/nc/"),
     #Directory to store output grib files
-    grib_out_dir="../data/outputs/grib/",
+    grib_out_dir=str(ROOT / "data/outputs/grib/"),
     #Path to metadata files with normalization parameters
-    norm_metadata_files={'inputs': '../metadata/input_norm.csv',
-                         'targets': '../metadata/target_norm.csv'},
+    norm_metadata_files={'inputs': str(ROOT / "metadata/input_norm.csv"),
+                         'targets': str(ROOT / "metadata/target_norm.csv")},
     #ERA5 analysis times
     nwp_an=[6],
     #List of ERA5 FC times
@@ -45,11 +48,11 @@ config = SimpleNamespace(
     #Target variable names as in norm_metadata_files
     target_var_names=['u_diff', 'v_diff'],
     #Path to metadata file required for L3 collocations
-    nwp_l3_proc_metadata="../metadata/nwp_l3_preproc.csv",
+    nwp_l3_proc_metadata=str(ROOT / "metadata/nwp_l3_preproc.csv"),
     #DNN model class
     model=FCNN,
     #Path to model weights
-    model_path='../weights/monthly/02',
+    model_path=str(ROOT / "weights/monthly/02"),
     #Configuration of the model
     batch_size=512*1024,
     dropout=0.25,
