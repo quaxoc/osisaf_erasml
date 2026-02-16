@@ -99,7 +99,7 @@ The script will:
 2. Normalize inputs using the statistics in `metadata/`.
 3. Run inference on the FCNN to predict bias corrections for both zonal (u) and meridional (v) wind components.
 4. Apply the corrections to the ERA5 U10S forecasts.
-5. Write output to NetCDF. GRIB output is also supported but requires the conversion block in the script to be uncommented (`cdo` installation is required to convert netCDF to grid).
+5. Write output to NetCDF. GRIB output is also supported but requires the conversion block in the script to be uncommented (`cdo` installation is required to convert netCDF to grib).
 
 > **All-year model**: when using the all-year weights, uncomment `'date'` in the `input_var_names` list in the configuration block. This enables the sine/cosine day-of-year encoding that the all-year model requires. The monthly models do not use this input.
 
