@@ -9,17 +9,14 @@ from datetime import datetime
 start_time = datetime.now()
 
 config = SimpleNamespace(
-    #ERA5 U10S input dir
+    #ERA5 U10S input directory
     nwp_dir="../data/inputs/ERA5/",
-    #Glob currents dir
-    #2023
+    #Global total currents directory
     currents_dir="../data/inputs/GLOBCURRENT/",
-    #2022
-    #currents_dir="/mnt/smart/scratch/satwinds/makarova/ERAS_ML/data/CMEMS_currents/MULTIOBS_GLO_PHY_MYNRT_015_003/cmems_obs_mob_glo_phy-cur_nrt_0.25deg_P1D-m_202311/",
     #Directory to store output netCDF files
-    nc_out_dir="../data/ouputs/nc/",
+    nc_out_dir="../data/outputs/nc/",
     #Directory to store output grib files
-    grib_out_dir="../data/ouputs/grib/",
+    grib_out_dir="../data/outputs/grib/",
     #Path to metadata files with normalization parameters
     norm_metadata_files={'inputs': '../metadata/input_norm.csv',
                          'targets': '../metadata/target_norm.csv'},
