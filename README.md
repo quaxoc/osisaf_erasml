@@ -5,7 +5,7 @@
 
 This repository provides the inference code and pre-trained model weights for correcting persistent stress-equivalent wind biases in ERA5 (ECMWF Reanalysis v5) sea surface wind forecasts using Fully-connected Feed-forward Neural Networks (FCNNs). It accompanies the technical report:
 
-> **Makarova, E., Portabella, M., and Stoffelen, A.** (2026). *On the Use of Machine Learning to Correct NWP Model Sea Surface Wind Forecasts with Scatterometer (ERASTAR AI2)*. OSI SAF Visiting Scientist Activity Technical Report OSI_VSA24_01. EUMETSAT / BEC ICM-CSIC / KNMI.
+> **Makarova, E., Portabella, M., and Stoffelen, A.** (2026). *On the Use of Machine Learning to Correct NWP Model Sea Surface Wind Forecasts with Scatterometer (ERASTAR AI2)*. OSI SAF Visiting Scientist Activity Technical Report OSI_VSA24_01. EUMETSAT.
 
 Related peer-reviewed publication:
 
