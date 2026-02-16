@@ -11,7 +11,7 @@ dependencies:
   - pytorch::pytorch
   - pytorch::torchvision
   - pytorch::torchaudio
-  - pytorch::pytorch-cuda=12.1
+  - pytorch::pytorch-cuda=12.6
   - conda-forge::pygrib
   - conda-forge::netCDF4
   - conda-forge::cartopy
@@ -25,6 +25,6 @@ dependencies:
   - notebook
   - pip
   - pip:
-    - wandb
     - tqdm
-
+    # wandb is only needed for training (experiment tracking), not for inference
+    # - wandb
