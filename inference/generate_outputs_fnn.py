@@ -39,7 +39,7 @@ config = SimpleNamespace(
     #Names of input variables used in DNN model
     input_var_names=['lon', 'lat', 'eastward_model_wind', 'northward_model_wind','model_speed', 'model_dir',
                      'se_model_wind_curl', 'se_model_wind_divergence',
-                     'msl', 'air_temperature', 'q', 'sst', 'sst_dx', 'sst_dy', 'uo', 'vo'], # 'date'],  'era5_fc_hour'],
+                     'msl', 'air_temperature', 'q', 'sst', 'sst_dx', 'sst_dy', 'uo', 'vo'], # 'date']
     #This variables will be used to extract land mask and remove corrections over land
     variable2extractmask='uo',
     #Target variable names as in norm_metadata_files
