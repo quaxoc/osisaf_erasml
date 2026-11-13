@@ -171,6 +171,9 @@ If you use this code or the pre-trained weights, please cite:
 
 This work was carried out within the EUMETSAT **Ocean and Sea Ice Satellite Application Facility (OSI SAF)** Visiting Scientist Activity programme. The authors are affiliated with the Barcelona Expert Center (BEC ICM-CSIC) and the Koninklijk Nederlands Meteorologisch Instituut (KNMI). ERA5 data were obtained from ECMWF. Surface current data were obtained from the Copernicus Marine Environment Monitoring Service (CMEMS).
 
+## License
+   Code and model weights are released under the Apache License 2.0.
+
 ---
 
 ## Contact
